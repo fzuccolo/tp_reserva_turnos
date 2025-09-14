@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Turnos | Nuevo paciente</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="pacientes.html">Pacientes</a>
+            <a href="nuevo-paciente.html"  class="actual">Nuevo paciente</a>
+            <a href="acerca.html">Acerca de</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Alta de paciente</h1>
+
+        <form id="form">
+            <div class="field">
+                <label for="apellidos">Apellidos</label>
+                <input id="apellidos" name="apellidos" required>
+            </div>
+            <div class="field">
+                <label for="nombres">Nombres</label>
+                <input id="nombres" name="nombres" required>
+            </div>
+            <div class="field">
+                <label for="dni">DNI</label>
+                <input id="dni" name="dni" type="number" min="1" required>
+            </div>
+            <div class="field">
+                <label for="fecha">Fecha de nacimiento</label>
+                <input id="fecha" name="fecha" type="date" required>
+            </div>
+            <div class="field">
+                <label for="sexo">Sexo</label>
+                <select id="sexo" name="sexo" required>
+                    <option value="">Seleccionar…</option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                    <option value="X">X</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="obraSocialId">Obra social</label>
+                <select id="obraSocialId" name="obraSocialId" required></select>
+            </div>
+            <div class="field">
+                <label for="credencial">Credencial</label>
+                <input id="credencial" name="credencial" required>
+            </div>
+            <button type="submit">Crear</button>
+        </form>
+
+        <p id="resultado" class="estado"></p>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/nuevo-paciente.js"></script>
+</body>
+
+</html>
