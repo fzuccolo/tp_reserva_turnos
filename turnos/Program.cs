@@ -20,15 +20,30 @@ public class Program
         Console.WriteLine($"La ubicación de la base de datos es {dbPath}");
         builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite($"Data source={dbPath}"));
 
+        // CORS
+        builder.Services.AddCors(opts =>
+        {
+            opts.AddPolicy("DevCors", policy =>
+            {
+                policy.WithOrigins("http://localhost:5500", "http://127.0.0.1:5500")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+        });
 
         var app = builder.Build();
+
+        // CORS
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseCors("DevCors");
+        }
 
         // Configure the HTTP request pipeline.
 
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
 
         app.MapControllers();
 
