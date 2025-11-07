@@ -1,0 +1,83 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Encabezado principal */
+.titulo-bienvenida {
+  display: block;
+  text-align: center;
+  color: #e7e2e2;
+  margin: 0; /* elimina espacio extra */
+  width: 100%;
+  background-color: rgb(21, 94, 70);
+  padding: 1.2em 0;
+  font-size: 1.6em;
+  letter-spacing: 0.5px;
+}
+
+.titulo-bienvenida h1 {
+  margin: 0; /* asegura que no genere separación */
+  padding: 0;
+}
+
+/* Contenedor del usuario */
+.data-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  background-color: #f2f6f4;
+  border-bottom: 2px solid rgb(49, 139, 109);
+  color: rgb(21, 94, 70);
+  padding: 1em;
+  font-weight: bold;
+  font-size: 1.1em;
+  border-radius: 4px;
+  max-width: 600px;
+  margin: 1.5em auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.data-user span {
+  color: rgb(49, 139, 109);
+  font-weight: 600;
+}
+
+/* Navegador */
+#navegador {
+  display: block;
+  width: 100%;
+  background-color: rgb(49, 139, 109);
+  padding: 0.8em 0;
+}
+
+#navegador ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+#navegador ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#navegador ul li a:hover {
+  background-color: rgb(21, 94, 70);
+}
+
+/* Contenedor general */
+#contenedor-principal {
+  display: block;
+  width: 100%;
+  text-align: center;
+}

@@ -1,74 +1,63 @@
-# TP Programación Avanzada II
+# README
 
-## API de turnos
+## Requisitos
+- Tener instalado .NET SDK (verificar con `dotnet --version`).
+- Tener un servidor web para servir la API si no se utiliza el servidor integrado de VSCode para testing. Opciones:
+    - Usar el servidor integrado de la aplicación (.NET Kestrel) con `dotnet run`.
+    - Usar IIS Express / otro servidor local o la extensión Live Server de VSCode para pruebas estáticas si aplica.
 
-Archivo `turnos.zip` dado extraído a `turnos/`.
+## Endpoints de la API
+La API expone los siguientes endpoints:
 
-### Compilar y correr
+- GET `/api/paciente`  
+    Devuelve la lista de pacientes pertenecientes al grupo familiar del usuario de id = 1
 
-    cd turnos
-    dotnet build
-    ASPNETCORE_ENVIRONMENT=Development dotnet run
+- GET `/api/paciente/{id}`  
+    Devuelve los datos del paciente de id = {id} perteneciente al grupo familiar del usuario de id = 1
 
-### Cambios hechos a la API
+- POST `/api/paciente`  
+    Crea un nuevo paciente y lo añade al grupo familiar del usuario de id = 1
 
-* Se subió el límite de pacientes por usuario de 5 a 10
-* Se agregó una Policy para desarrollo
+- DELETE `/api/paciente/{id}`  
+    Elimina el paciente de id = {id} perteneciente al grupo familiar del usuario de id = 1
 
-### Endpoints
+- GET `/api/obrasocial`  
+    Devuelve la lista de obras sociales existentes en el sistema
 
-    GET /api/obrasocial
-    GET /api/obrasocial/{id}
+- GET `/api/obrasocial/{id}`  
+    Devuelve los datos de la obra social de id = {id}
 
-    GET /api/paciente
-    GET /api/paciente/{id}
-    POST /api/paciente
-    DELETE /api/paciente?id={id}
+- GET `/api/usuario`  
+    Devuelve una lista con un único elemento: los datos del usuario de id = 1
 
-    GET /api/usuario
-    GET /api/usuario/{id}
+- GET `/api/usuario/{id}`  
+    Devuelve los datos del usuario de id = {id}. El valor de `{id}` debe ser 1
 
-### Ejemplos
+## Pruebas y documentación adicional
+En este repositorio hay documentos con las pruebas realizadas (logs, ejemplos de requests y respuestas):
+- [md/pruebas.md](MD/pruebas.md)
+- [md/resultados.md](MD/resultados.md)
 
-    curl -i http://localhost:5000/api/obrasocial
-    curl -i http://localhost:5000/api/obrasocial/1
+(Ajustar rutas si los archivos están en otra ubicación.)
 
-    curl -i http://localhost:5000/api/paciente
-    curl -i http://localhost:5000/api/paciente/2
-
-    curl -i -X POST http://localhost:5000/api/paciente \
-        -H 'Content-Type: application/json' \
-        -H 'Accept: application/json' \
-        -d '{
-            "apellidos": "García",
-            "nombres": "Ana",
-            "dni": 26174623,
-            "fechaDeNacimiento": "1995-05-05",
-            "sexo": "F",
-            "obraSocialId": 1,
-            "credencial": "ABC-124"
-        }'
-
-    curl -i -X DELETE http://localhost:5000/api/paciente?id=2  # FIXME: arreglar en la API
-
-    curl -i http://localhost:5000/api/usuario
-    curl -i http://localhost:5000/api/usuario/1
-
-
-## Frontend
-
-Servir el front en puerto `5500`:
-
-    cd front
-    python3 -m http.server 5500
-
-Abrir http://localhost:5500/index.html
-
-### Screenshots
-
-<img width="600" alt="Screenshot from 2025-09-14 11-19-15" src="https://github.com/user-attachments/assets/07f8c6db-2ad1-4197-8bbc-ce1ab7c4bc7c" />
-<img width="600" alt="Screenshot from 2025-09-14 11-20-20" src="https://github.com/user-attachments/assets/75c83288-6d6c-4aa7-941f-4fc888696fc6" />
-<img width="600" alt="Screenshot from 2025-09-14 11-34-03" src="https://github.com/user-attachments/assets/b5e008f4-4e2d-43f9-9d07-0d4f9d4108e8" />
-<img width="600" alt="Screenshot from 2025-09-14 11-22-26" src="https://github.com/user-attachments/assets/d8598187-fbb0-4819-9a88-b22481eac04e" />
-<img width="600" alt="Screenshot from 2025-09-14 11-34-59" src="https://github.com/user-attachments/assets/e7b06342-e8cb-49ad-9641-e93c5b386444" />
-
+## Cómo probar con Postman en Windows
+1. Asegurarse de que la API esté corriendo (por ejemplo `dotnet run`). Anotar la URL base (ej.: `http://localhost:5000` o `https://localhost:5001`).
+2. Abrir Postman.
+3. Crear una nueva request:
+     - Seleccionar método (GET, POST, DELETE).
+     - URL: `{BASE_URL}/api/...` (ej.: `http://localhost:5000/api/paciente`).
+4. Headers (si aplica):  
+     - `Content-Type: application/json`
+5. Para POST `/api/paciente`: en la pestaña Body seleccionar `raw` y `JSON` e insertar JSON, por ejemplo:
+     {
+         "nombre": "Juan",
+         "apellido": "Pérez",
+         "dni": "12345678",
+         "fechaNacimiento": "1980-01-01",
+         "obraSocialId": 1
+     }
+6. Ejecutar la request y revisar la respuesta en Postman.
+7. Para DELETE usar `DELETE {BASE_URL}/api/paciente/{id}` con el id correspondiente.
+8. Si recibe errores de CORS o conexión:
+     - Verificar que el servidor esté escuchando en la URL y puerto usados.
+     - Revisar configuración CORS en la API si se prueba desde orígenes distintos.

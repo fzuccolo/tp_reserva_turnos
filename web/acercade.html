@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Obra Social - Institucional</title>
+  <link rel="stylesheet" href="CSS/acercade.css" />
+</head>
+<body>
+
+  <header class="titulo-bienvenida">
+    <h1>Obra Social Genérica</h1>
+    <p>Cuidado integral y cobertura nacional</p>
+  </header>
+
+  <nav id="navegador">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="altas.html">Alta y listado</a></li>
+      <li><a href="listargf.html">Listado Pacientes</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenedor-principal">
+    <section id="sobre-nosotros" class="seccion">
+      <h2>Sobre Nosotros</h2>
+      <p>Somos una obra social comprometida con el cuidado integral de la salud de nuestros afiliados. Brindamos cobertura médica en todo el país a través de una amplia red de prestadores, centros de diagnóstico y profesionales de todas las especialidades. Nuestro objetivo es garantizar atención de calidad, accesible y cercana a cada persona.</p>
+
+      <h3>Misión</h3>
+      <p>Proteger la salud de nuestros afiliados mediante servicios eficientes, transparentes y de excelencia médica, promoviendo la prevención y el bienestar integral.</p>
+
+      <h3>Visión</h3>
+      <p>Ser una obra social de referencia, reconocida por la calidad de su atención, la innovación en sus servicios y el trato humano hacia cada afiliado.</p>
+
+      <h3>Valores</h3>
+      <ul>
+        <li><strong>Compromiso:</strong> trabajamos para mejorar la calidad de vida de las personas.</li>
+        <li><strong>Transparencia:</strong> gestionamos los recursos con responsabilidad y claridad.</li>
+        <li><strong>Calidad:</strong> buscamos la mejora continua en cada servicio.</li>
+        <li><strong>Equidad:</strong> brindamos atención sin distinciones, con igualdad de oportunidades.</li>
+      </ul>
+    </section>
+
+    <section id="servicios" class="seccion">
+      <h2>Servicios</h2>
+      <ul>
+        <li>Consultas médicas en todas las especialidades.</li>
+        <li>Cobertura en internaciones y emergencias.</li>
+        <li>Programas de prevención y salud integral.</li>
+        <li>Atención odontológica, oftalmológica y psicología.</li>
+        <li>Farmacias con descuentos y convenios especiales.</li>
+        <li>Cobertura nacional e interprovincial.</li>
+      </ul>
+    </section>
+
+    <section id="contacto" class="seccion">
+      <h2>Contacto</h2>
+      <p>Para más información sobre afiliaciones, planes o prestadores, completá el siguiente formulario o comunicate con nuestro centro de atención.</p>
+
+      <form action="#" method="post" class="form-contacto">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <p><strong>Teléfono:</strong> 0-800-000-0000<br>
+         <strong>Email:</strong> info@obrasocial.org<br>
+         <strong>Horario:</strong> Lunes a Viernes de 9:00 a 18:00</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="anio"></span> Obra Social Genérica. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById('anio').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Encabezado */
+.titulo-bienvenida {
+    display: block;
+    text-align: center;
+    color: #e7e2e2;
+    margin-top: 0;
+    width: 100%;
+    background-color: rgb(21, 94, 70);
+    padding: 1em 0;
+}
+
+/* Navegación */
+#navegador {
+    display: block;
+    width: 100%;
+    background-color: rgb(49, 139, 109);
+    padding: 1em 0;
+}
+
+#navegador ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+#navegador ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#navegador ul li a:hover {
+    background-color: rgb(21, 94, 70);
+}
+
+/* Contenido principal */
+#contenedor-principal {
+    display: block;
+    width: 90%;
+    max-width: 900px;
+    margin: 2em auto;
+}
+
+.seccion {
+    margin-bottom: 2em;
+}
+
+.seccion h2 {
+    color: rgb(21, 94, 70);
+    border-bottom: 2px solid rgb(49, 139, 109);
+    padding-bottom: 5px;
+}
+
+.seccion p, .seccion ul {
+    color: #333;
+}
+
+/* Formulario de contacto */
+.form-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin: 1em 0;
+}
+
+.form-contacto input,
+.form-contacto textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-contacto button {
+    background-color: rgb(49, 139, 109);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-contacto button:hover {
+    background-color: rgb(21, 94, 70);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: rgb(21, 94, 70);
+    color: #e7e2e2;
+    padding: 1em 0;
+}
