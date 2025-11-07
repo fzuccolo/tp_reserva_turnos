@@ -7,28 +7,74 @@ Resultado (JSON):
 ```json
 [
     {
-        "id": 1,
-        "nombre": "María",
-        "apellido": "González",
-        "dni": "30111222",
-        "fechaNacimiento": "1980-05-14",
-        "sexo": "F",
-        "obraSocialId": 1,
-        "telefono": "+5491122334455",
-        "direccion": "Av. Siempre Viva 123",
-        "parentesco": "Titular"
+        "pacienteId": 1,
+        "apellidos": "Pérez",
+        "nombres": "Juan",
+        "dni": 12345678,
+        "fechaDeNacimiento": "1990-01-01T00:00:00",
+        "sexo": "M",
+        "obraSocial": {
+            "obraSocialId": 1,
+            "nombre": "Particular"
+        },
+        "credencial": "",
+        "esUsuario": true
     },
     {
-        "id": 2,
-        "nombre": "Santiago",
-        "apellido": "González",
-        "dni": "38123456",
-        "fechaNacimiento": "2010-09-02",
+        "pacienteId": 2,
+        "apellidos": "Pérez",
+        "nombres": "María",
+        "dni": 12345679,
+        "fechaDeNacimiento": "1991-01-01T00:00:00",
+        "sexo": "F",
+        "obraSocial": {
+            "obraSocialId": 1,
+            "nombre": "Particular"
+        },
+        "credencial": "",
+        "esUsuario": false
+    },
+    {
+        "pacienteId": 3,
+        "apellidos": "Pérez",
+        "nombres": "Juan",
+        "dni": 12345910,
+        "fechaDeNacimiento": "1990-01-01T00:00:00",
         "sexo": "M",
-        "obraSocialId": 1,
-        "telefono": null,
-        "direccion": "Av. Siempre Viva 123",
-        "parentesco": "Hijo"
+        "obraSocial": {
+            "obraSocialId": 2,
+            "nombre": "OSDE"
+        },
+        "credencial": "",
+        "esUsuario": false
+    },
+    {
+        "pacienteId": 4,
+        "apellidos": "Gramajo",
+        "nombres": "Esther",
+        "dni": 47552545,
+        "fechaDeNacimiento": "1947-02-17T00:00:00",
+        "sexo": "F",
+        "obraSocial": {
+            "obraSocialId": 3,
+            "nombre": "Swiss Medical"
+        },
+        "credencial": "564654561321321",
+        "esUsuario": false
+    },
+    {
+        "pacienteId": 5,
+        "apellidos": "Gramajo",
+        "nombres": "Esther",
+        "dni": 4775552,
+        "fechaDeNacimiento": "1947-02-17T00:00:00",
+        "sexo": "F",
+        "obraSocial": {
+            "obraSocialId": 3,
+            "nombre": "Swiss Medical"
+        },
+        "credencial": "564654561321321",
+        "esUsuario": false
     }
 ]
 ```
@@ -41,16 +87,18 @@ Ejemplo para id = 2
 Resultado (JSON):
 ```json
 {
-    "id": 2,
-    "nombre": "Santiago",
-    "apellido": "González",
-    "dni": "38123456",
-    "fechaNacimiento": "2010-09-02",
-    "sexo": "M",
-    "obraSocialId": 1,
-    "telefono": null,
-    "direccion": "Av. Siempre Viva 123",
-    "parentesco": "Hijo"
+    "pacienteId": 2,
+    "apellidos": "Pérez",
+    "nombres": "María",
+    "dni": 12345679,
+    "fechaDeNacimiento": "1991-01-01T00:00:00",
+    "sexo": "F",
+    "obraSocial": {
+        "obraSocialId": 1,
+        "nombre": "Particular"
+    },
+    "credencial": "",
+    "esUsuario": false
 }
 ```
 
@@ -60,32 +108,31 @@ Crea un nuevo paciente y lo añade al grupo familiar del usuario de id = 1
 Request (ejemplo):
 ```json
 {
-    "nombre": "Lucía",
-    "apellido": "Pérez",
-    "dni": "40222333",
-    "fechaNacimiento": "1995-11-20",
-    "sexo": "F",
+    "apellidos": "Pérez",
+    "nombres": "Juan",
+    "dni": 12345910,
+    "fechaDeNacimiento": "1990-01-01T00:00:00",
+    "sexo": "M",
     "obraSocialId": 2,
-    "telefono": "+5491166677788",
-    "direccion": "Calle Falsa 456",
-    "parentesco": "Cónyuge"
+    "credencial": ""
 }
 ```
 
 Resultado (JSON) — recurso creado:
 ```json
 {
-    "id": 3,
-    "nombre": "Lucía",
-    "apellido": "Pérez",
-    "dni": "40222333",
-    "fechaNacimiento": "1995-11-20",
-    "sexo": "F",
-    "obraSocialId": 2,
-    "telefono": "+5491166677788",
-    "direccion": "Calle Falsa 456",
-    "parentesco": "Cónyuge",
-    "createdAt": "2025-11-07T10:15:30Z"
+    "pacienteId": 3,
+    "apellidos": "Pérez",
+    "nombres": "Juan",
+    "dni": 12345910,
+    "fechaDeNacimiento": "1990-01-01T00:00:00",
+    "sexo": "M",
+    "obraSocial": {
+        "obraSocialId": 2,
+        "nombre": "OSDE"
+    },
+    "credencial": "",
+    "esUsuario": false
 }
 ```
 
@@ -109,18 +156,20 @@ Resultado (JSON):
 ```json
 [
     {
-        "id": 1,
-        "nombre": "ObraSocial Salud",
-        "telefono": "+541134445566",
-        "direccion": "Av. Salud 100",
-        "plan": "Plan General"
+        "obraSocialId": 1,
+        "nombre": "Particular"
     },
     {
-        "id": 2,
-        "nombre": "Cobertura Plus",
-        "telefono": "+541198776655",
-        "direccion": "Calle Cobertura 200",
-        "plan": "Plan Familiar"
+        "obraSocialId": 2,
+        "nombre": "OSDE"
+    },
+    {
+        "obraSocialId": 3,
+        "nombre": "Swiss Medical"
+    },
+    {
+        "obraSocialId": 4,
+        "nombre": "Galeno"
     }
 ]
 ```
@@ -131,15 +180,8 @@ Devuelve los datos de la obra social de id = 1
 Resultado (JSON):
 ```json
 {
-    "id": 1,
-    "nombre": "ObraSocial Salud",
-    "telefono": "+541134445566",
-    "direccion": "Av. Salud 100",
-    "plan": "Plan General",
-    "contacto": {
-        "email": "info@obrasocialsalud.example",
-        "horario": "Lun a Vie 9:00-17:00"
-    }
+    "obraSocialId": 2,
+    "nombre": "OSDE"
 }
 ```
 
@@ -150,13 +192,9 @@ Resultado (JSON):
 ```json
 [
     {
-        "id": 1,
-        "nombre": "Juan",
-        "apellido": "Pérez",
-        "email": "juan.perez@example.com",
-        "telefono": "+5491177776666",
-        "direccion": "Av. Central 1",
-        "grupoFamiliarId": 1
+        "usuarioId": 1,
+        "email": "juanperez@example.com",
+        "limite": 5
     }
 ]
 ```
@@ -166,13 +204,11 @@ Devuelve los datos del usuario de id = {id}. El valor de {id} debe ser 1
 
 Resultado (JSON) — id = 1:
 ```json
-{
-    "id": 1,
-    "nombre": "Juan",
-    "apellido": "Pérez",
-    "email": "juan.perez@example.com",
-    "telefono": "+5491177776666",
-    "direccion": "Av. Central 1",
-    "grupoFamiliarId": 1
-}
+[
+    {
+        "usuarioId": 1,
+        "email": "juanperez@example.com",
+        "limite": 5
+    }
+]
 ```
