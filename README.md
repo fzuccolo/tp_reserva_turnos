@@ -35,8 +35,8 @@ La API expone los siguientes endpoints:
 
 ## Pruebas y documentación adicional
 En este repositorio hay documentos con las pruebas realizadas (logs, ejemplos de requests y respuestas):
-- [md/pruebas.md](MD/pruebas.md)
-- [md/resultados.md](MD/resultados.md)
+- [md/pruebas.md](md/pruebas.md)
+- [md/resultados.md](md/resultados.md)
 
 (Ajustar rutas si los archivos están en otra ubicación.)
 
