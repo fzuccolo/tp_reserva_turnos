@@ -1,10 +1,10 @@
 <h1>Reserva de Turnos SPA</h1>
 
 <app-alta-paciente
-    (agregarPaciente)="listadoPacientes.cargarPacientes(); reservarTurno.cargarPacientes()"></app-alta-paciente>
+    (agregarPaciente)="listadoPacientes.cargarPacientes(); reservarTurno.cargarPacientes(); listadoTurnos.cargarPacientes()">
+</app-alta-paciente>
 <app-listado-pacientes #listadoPacientes (pacienteEliminado)="reservarTurno.cargarPacientes()"></app-listado-pacientes>
-
-<app-reservar-turno #reservarTurno (turnoReservado)="listadoTurnos.cargarTurnos()"></app-reservar-turno>
+<app-reservar-turno #reservarTurno (turnoReservado)="listadoTurnos.cargarPacientes()"></app-reservar-turno>
 <app-listado-turnos #listadoTurnos></app-listado-turnos>
 <app-listado-sucursales></app-listado-sucursales>
 
