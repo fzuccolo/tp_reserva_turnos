@@ -5,6 +5,7 @@ import { Paciente } from '../../modelos/paciente';
 import { ObraSocial } from '../../modelos/obra-social';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { parseHttpError } from '../../utils/http-error';
 
 @Component({
     selector: 'app-listado-pacientes',
@@ -69,9 +70,15 @@ export class ListadoPacientesComponent implements OnInit {
             return;
         }
         if (!paciente.id) return;
-        this.pacienteService.eliminarPaciente(paciente).subscribe(() => {
-            this.pacientes = this.pacientes.filter(p => p.id !== paciente.id);
-            this.pacienteEliminado.emit();
+
+        this.pacienteService.eliminarPaciente(paciente).subscribe({
+            next: () => {
+                this.pacientes = this.pacientes.filter(p => p.id !== paciente.id);
+                this.pacienteEliminado.emit();
+            },
+            error: (err) => {
+                alert(parseHttpError(err));
+            },
         });
     }
 
