@@ -5,6 +5,7 @@ import { ObraSocialService } from '../../servicios/obra-social.service';
 import { Paciente } from '../../modelos/paciente';
 import { ObraSocial } from '../../modelos/obra-social';
 import { CommonModule } from '@angular/common';
+import { parseHttpError } from '../../utils/http-error';
 
 @Component({
     selector: 'app-alta-paciente',
@@ -68,7 +69,10 @@ export class AltaPacienteComponent implements OnInit {
                 this.agregarPaciente.emit();
                 alert('Paciente creado correctamente');
             },
-            error: err => console.error('Error al crear paciente:', err)
+            error: err => {
+                console.error('Error al crear paciente:', err);
+                alert(parseHttpError(err));
+            }
         });
     }
 }
