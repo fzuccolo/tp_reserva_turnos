@@ -4,16 +4,23 @@ import { SucursalService } from '../../servicios/sucursal.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-listado-sucursales',
-  imports: [CommonModule],
-  templateUrl: './listado-sucursales.component.html'
+    selector: 'app-listado-sucursales',
+    imports: [CommonModule],
+    templateUrl: './listado-sucursales.component.html'
 })
 export class ListadoSucursalesComponent implements OnInit {
-  sucursales: Sucursal[] = [];
+    sucursales: Sucursal[] = [];
 
-  constructor(private sucursalService: SucursalService) {}
+    constructor(private sucursalService: SucursalService) { }
 
-  ngOnInit() {
-    this.sucursalService.obtenerSucursales().subscribe(s => this.sucursales = s);
-  }
+    ngOnInit() {
+        this.sucursalService.obtenerSucursales().subscribe((s: any[]) => {
+            this.sucursales = s.map(({ id, sucursalId, nombre, direccion }) => ({
+                id: Number(id ?? sucursalId),
+                nombre,
+                direccion,
+            }));
+        });
+    }
+
 }

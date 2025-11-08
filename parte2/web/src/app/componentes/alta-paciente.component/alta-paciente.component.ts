@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PacienteService } from '../../servicios/paciente.service';
 import { ObraSocialService } from '../../servicios/obra-social.service';
@@ -12,13 +12,15 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule, CommonModule]
 })
 export class AltaPacienteComponent implements OnInit {
+  @Output() agregarPaciente = new EventEmitter<void>();
+
   nombre = '';
   apellido = '';
   dni = '';
   fechaNacimiento = '';
   obraSocialId: number = 0;
-  sexo: 'M' | 'F' | 'X' = 'F';      
-  credencial: string = '';           
+  sexo: 'M' | 'F' | 'X' = 'F';
+  credencial: string = '';
   obrasSociales: ObraSocial[] = [];
 
   private pacienteService = inject(PacienteService);
@@ -32,7 +34,7 @@ export class AltaPacienteComponent implements OnInit {
     this.obraSocialService.obtenerObrasSociales().subscribe({
       next: data => {
         this.obrasSociales = data.map(os => ({
-          id: Number((os as any).obraSocialId), // mapear id numérico correctamente
+          id: Number((os as any).obraSocialId),
           nombre: (os as any).nombre
         }));
 
@@ -46,27 +48,24 @@ export class AltaPacienteComponent implements OnInit {
 
   submit() {
     const nuevoPaciente: Paciente = {
-  nombres: this.nombre,
-  apellidos: this.apellido,
-  dni: this.dni,
-  fechaDeNacimiento: this.fechaNacimiento,
-  obraSocialId: this.obraSocialId,
-  sexo: this.sexo,
-  credencial: this.credencial,
-  esUsuario: false
-};
-
+      nombres: this.nombre,
+      apellidos: this.apellido,
+      dni: this.dni,
+      fechaDeNacimiento: this.fechaNacimiento,
+      obraSocialId: this.obraSocialId,
+      sexo: this.sexo,
+      credencial: this.credencial,
+      esUsuario: false
+    };
 
     this.pacienteService.crearPaciente(nuevoPaciente).subscribe({
       next: pacienteCreado => {
         console.log('Paciente creado:', pacienteCreado);
-
-        // Resetear campos del formulario
         this.nombre = this.apellido = this.dni = this.fechaNacimiento = '';
         this.obraSocialId = this.obrasSociales[0]?.id || 0;
         this.sexo = 'F';
         this.credencial = '';
-
+        this.agregarPaciente.emit();
         alert('Paciente creado correctamente');
       },
       error: err => console.error('Error al crear paciente:', err)

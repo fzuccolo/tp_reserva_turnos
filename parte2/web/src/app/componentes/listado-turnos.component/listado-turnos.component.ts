@@ -20,7 +20,7 @@ export class ListadoTurnosComponent implements OnInit {
 
   ngOnInit() {
     this.cargarPacientes();
-    //this.cargarTurnos();
+    this.cargarTurnos();
   }
 
   cargarPacientes() {
@@ -50,10 +50,10 @@ export class ListadoTurnosComponent implements OnInit {
       next: data => {
         // Mapear siempre el id correcto
         this.turnos = data.map(t => ({
-          id: t.id || (t as any).turnoId,
-          pacienteId: t.pacienteId,
-          sucursalId: t.sucursalId,
-          horario: t.horario
+          id: Number((t as any).id ?? (t as any).turnoId),
+          pacienteId: Number((t as any).pacienteId),
+          sucursalId: Number((t as any).sucursalId),
+          horario: String((t as any).horario)
         }));
       },
       error: err => console.error('Error al obtener turnos:', err)

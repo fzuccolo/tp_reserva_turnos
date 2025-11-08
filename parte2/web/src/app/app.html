@@ -3,8 +3,8 @@
 <app-alta-paciente (agregarPaciente)="listadoPacientes.cargarPacientes()"></app-alta-paciente>
 <app-listado-pacientes #listadoPacientes></app-listado-pacientes>
 
-<app-reservar-turno></app-reservar-turno>
-<app-listado-turnos></app-listado-turnos>
+<app-reservar-turno (turnoReservado)="listadoTurnos.cargarTurnos()"></app-reservar-turno>
+<app-listado-turnos #listadoTurnos></app-listado-turnos>
 <app-listado-sucursales></app-listado-sucursales>
 
 <router-outlet  />
