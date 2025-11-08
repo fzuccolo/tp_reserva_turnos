@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, Output, EventEmitter } from '@angular/core';
 import { PacienteService } from '../../servicios/paciente.service';
 import { ObraSocialService } from '../../servicios/obra-social.service';
 import { Paciente } from '../../modelos/paciente';
@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './listado-pacientes.component.html'
 })
 export class ListadoPacientesComponent implements OnInit {
+  @Output() pacienteEliminado = new EventEmitter<void>();
+
 
   pacientes: Paciente[] = [];
   obrasSociales: ObraSocial[] = [];
@@ -69,6 +71,7 @@ getNombreObraSocial(id?: number) {
   if (!paciente.id) return;
   this.pacienteService.eliminarPaciente(paciente).subscribe(() => {
     this.pacientes = this.pacientes.filter(p => p.id !== paciente.id);
+    this.pacienteEliminado.emit();
   });
 }
 
