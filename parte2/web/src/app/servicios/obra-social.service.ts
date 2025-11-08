@@ -13,14 +13,3 @@ export class ObraSocialService {
         return this.http.get<ObraSocial[]>(this.baseUrl);
     }
 }
-
-// sucursal.service.ts
-@Injectable({ providedIn: 'root' })
-export class SucursalService {
-    private http = inject(HttpClient);
-    private baseUrl = 'http://localhost:5000/sucursales';
-
-    obtenerSucursales(): Observable<Sucursal[]> {
-        return this.http.get<Sucursal[]>(this.baseUrl);
-    }
-}
