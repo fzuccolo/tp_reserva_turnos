@@ -2,8 +2,9 @@
 
 @for (turno of turnos; track turno.id)
 {
-    <div>
-        Paciente ID: {{turno.pacienteId}}, Nombre Paciente: {{ getNombrePaciente(turno.pacienteId) }}, Sucursal ID: {{turno.sucursalId}}, Fecha: {{turno.horario}}
-        <button (click)="cancelarTurno(turno.id!)">Cancelar</button>
-    </div>
+<div>
+    Paciente ID: {{turno.pacienteId}}, Nombre Paciente: {{ getNombrePaciente(turno.pacienteId) }}, Sucursal ID:
+    {{turno.sucursalId}}, Fecha: {{turno.horario}}
+    <button (click)="cancelarTurno(turno.id!)">Cancelar</button>
+</div>
 }

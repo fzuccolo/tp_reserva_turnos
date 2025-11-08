@@ -1,6 +1,6 @@
 export interface Turno {
-  id?: number;
-  pacienteId: number;
-  sucursalId: number;
-  horario: string; // ISO string
+    id?: number;
+    pacienteId: number;
+    sucursalId: number;
+    horario: string;
 }

@@ -1,10 +1,10 @@
 <h2>Mis Pacientes</h2>
 
 <div *ngFor="let paciente of pacientes">
-  {{ paciente.nombres }} {{ paciente.apellidos }} - DNI: {{ paciente.dni }} 
-  - Obra Social: {{ getNombreObraSocial(paciente.obraSocialId) }} 
-  - Rol: {{ paciente.esUsuario ? 'Titular' : 'Miembro' }}
+    {{ paciente.nombres }} {{ paciente.apellidos }} - DNI: {{ paciente.dni }}
+    - Obra Social: {{ getNombreObraSocial(paciente.obraSocialId) }}
+    - Rol: {{ paciente.esUsuario ? 'Titular' : 'Miembro' }}
 
-  <!-- Solo permite eliminar si no es titular -->
-  <button *ngIf="!paciente.esUsuario" (click)="eliminarPaciente(paciente)">Eliminar</button>
+    <!-- Solo permite eliminar si no es titular -->
+    <button *ngIf="!paciente.esUsuario" (click)="eliminarPaciente(paciente)">Eliminar</button>
 </div>

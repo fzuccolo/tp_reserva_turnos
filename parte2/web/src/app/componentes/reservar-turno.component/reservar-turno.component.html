@@ -2,27 +2,27 @@
 
 <form (submit)="reservar(); $event.preventDefault()">
 
-  <label>Paciente:</label>
-  <select [(ngModel)]="pacienteId" name="paciente" required>
-    <option value="" disabled selected>Seleccione paciente</option>
-    <option *ngFor="let p of pacientes" [value]="p.id">
-      {{ p.nombres }} {{ p.apellidos }} - {{ p.esUsuario ? 'Titular' : 'Miembro' }}
-    </option>
-  </select>
+    <label>Paciente:</label>
+    <select [(ngModel)]="pacienteId" name="paciente" required>
+        <option value="" disabled selected>Seleccione paciente</option>
+        <option *ngFor="let p of pacientes" [value]="p.id">
+            {{ p.nombres }} {{ p.apellidos }} - {{ p.esUsuario ? 'Titular' : 'Miembro' }}
+        </option>
+    </select>
 
-  <label>Sucursal:</label>
-  <select [(ngModel)]="sucursalId" name="sucursal" required>
-    <option value="" disabled selected>Seleccione sucursal</option>
-    <option *ngFor="let s of sucursales" [value]="s.id">
-      {{ s.nombre }} - {{ s.direccion }}
-    </option>
-  </select>
+    <label>Sucursal:</label>
+    <select [(ngModel)]="sucursalId" name="sucursal" required>
+        <option value="" disabled selected>Seleccione sucursal</option>
+        <option *ngFor="let s of sucursales" [value]="s.id">
+            {{ s.nombre }} - {{ s.direccion }}
+        </option>
+    </select>
 
-  <label>Fecha:</label>
-  <input type="date" [(ngModel)]="fecha" name="fecha" required>
+    <label>Fecha:</label>
+    <input type="date" [(ngModel)]="fecha" name="fecha" required>
 
-  <label>Hora (24h):</label>
-  <input type="time" [(ngModel)]="hora" name="hora" required min="09:00" max="18:00" step="300">
+    <label>Hora (24h):</label>
+    <input type="time" [(ngModel)]="hora" name="hora" required min="09:00" max="18:00" step="300">
 
-  <button type="submit">Reservar</button>
+    <button type="submit">Reservar</button>
 </form>

@@ -8,19 +8,19 @@ import { AltaPacienteComponent } from './componentes/alta-paciente.component/alt
 
 
 @Component({
-  selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    ListadoPacientesComponent,
-    ReservarTurnoComponent,
-    ListadoTurnosComponent,
-    ListadoSucursalesComponent,
-    AltaPacienteComponent
-  ],
-  templateUrl: './app.html',
-  styleUrls: ['./app.css']
+    selector: 'app-root',
+    imports: [
+        RouterOutlet,
+        ListadoPacientesComponent,
+        ReservarTurnoComponent,
+        ListadoTurnosComponent,
+        ListadoSucursalesComponent,
+        AltaPacienteComponent
+    ],
+    templateUrl: './app.html',
+    styleUrls: ['./app.css']
 
 })
 export class App {
-  protected readonly title = signal('tp2');
+    protected readonly title = signal('tp2');
 }
