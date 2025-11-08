@@ -3,7 +3,7 @@
 ### Integrantes
 
 * Leporis, Hulien
-* Juan
+* Ortiz, Juan Tomás
 * Zuccolo, Federico Agustín
 
 ## Parte 1
