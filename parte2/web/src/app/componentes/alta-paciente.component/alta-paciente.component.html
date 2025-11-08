@@ -1,0 +1,21 @@
+<h3>Agregar paciente</h3>
+<form (submit)="submit(); $event.preventDefault()">
+  <input type="text" placeholder="Nombre" [(ngModel)]="nombre" name="nombre" required>
+  <input type="text" placeholder="Apellido" [(ngModel)]="apellido" name="apellido" required>
+  <input type="text" placeholder="DNI" [(ngModel)]="dni" name="dni" required>
+  <input type="date" [(ngModel)]="fechaNacimiento" name="fechaNacimiento" required>
+
+  <select [(ngModel)]="obraSocialId" name="obraSocial" required>
+    <option *ngFor="let os of obrasSociales" [ngValue]="os.id">{{ os.nombre }}</option>
+  </select>
+
+  <select [(ngModel)]="sexo" name="sexo" required>
+    <option value="M">Masculino</option>
+    <option value="F">Femenino</option>
+    <option value="X">Otro</option>
+  </select>
+
+  <input type="text" placeholder="Credencial" [(ngModel)]="credencial" name="credencial" required>
+
+  <button type="submit">Agregar</button>
+</form>

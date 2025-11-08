@@ -1,0 +1,8 @@
+<h3>Sucursales</h3>
+
+@for (sucursal of sucursales; track sucursal.id)
+{
+    <div>
+        {{sucursal.nombre}} - {{sucursal.direccion}}
+    </div>
+}

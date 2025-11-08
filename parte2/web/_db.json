@@ -1,0 +1,78 @@
+{
+  "pacientes": [
+    {
+      "id": "88f4",
+      "nombre": "Huilen",
+      "apellido": "Leporis",
+      "dni": "39879572",
+      "fechaNacimiento": "1996-11-13",
+      "obraSocialId": "2"
+    },
+    {
+      "id": "7bc0",
+      "nombre": "Luna",
+      "apellido": "Pereira",
+      "dni": "44443",
+      "fechaNacimiento": "2025-10-31",
+      "obraSocialId": "1"
+    },
+    {
+      "id": "e0a1",
+      "nombre": "Luz",
+      "apellido": "Gomez",
+      "dni": "3434",
+      "fechaNacimiento": "2025-10-30",
+      "obraSocialId": "2"
+    },
+    {
+      "id": "090a",
+      "nombre": "Juana",
+      "apellido": "Rodriguez",
+      "dni": "232332",
+      "fechaNacimiento": "2025-10-28",
+      "obraSocialId": "3"
+    }
+  ],
+  "turnos": [
+    {
+      "id": "c9ca",
+      "pacienteId": "88f4",
+      "sucursalId": "1",
+      "fecha": "2025-10-31",
+      "hora": "14:00"
+    },
+    {
+      "id": "7c30",
+      "pacienteId": "7bc0",
+      "sucursalId": "2",
+      "fecha": "2025-10-31",
+      "hora": "16:30"
+    }
+  ],
+  "sucursales": [
+    {
+      "id": "1",
+      "nombre": "Sucursal Centro",
+      "direccion": "Calle Falsa 123"
+    },
+    {
+      "id": "2",
+      "nombre": "Sucursal Norte",
+      "direccion": "Av. Siempre Viva 456"
+    }
+  ],
+  "obras-sociales": [
+    {
+      "id": "1",
+      "nombre": "OSDE"
+    },
+    {
+      "id": "2",
+      "nombre": "Swiss Medical"
+    },
+    {
+      "id": "3",
+      "nombre": "Galeno"
+    }
+  ]
+}
