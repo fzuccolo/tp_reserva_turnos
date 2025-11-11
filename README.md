@@ -8,6 +8,6 @@
 
 ### Resolución
 
-* [Parte 1](parte1/README.md)
-* [Parte 2](parte2/README.md)
+* [Parte 1](parte1/)
+* [Parte 2](parte2/)
 
